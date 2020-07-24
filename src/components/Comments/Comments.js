@@ -18,6 +18,7 @@ class Comments extends Component {
       type: 'SET_COMMENTS',
       payload: this.state.comments,
     });
+    this.props.history.push('/feeling');
   };
   render() {
     return (

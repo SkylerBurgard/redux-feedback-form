@@ -45,7 +45,10 @@ const understandingReducer = (state = '', action) => {
 
 const storeInstance = createStore(
   combineReducers({
-    feedbackReducer,
+    commentsReducer,
+    feelingReducer,
+    understandingReducer,
+    supportReducer,
   }),
   applyMiddleware(logger)
 );
@@ -56,4 +59,4 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
-// registerServiceWorker();
+registerServiceWorker();
