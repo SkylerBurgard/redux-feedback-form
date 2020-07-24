@@ -8,9 +8,9 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
 const commentReducer = (state = '', action) => {
-  if (action.type === 'SET_COMMENT') {
+  if (action.type === 'SET_COMMENTS') {
     return action.payload;
-  } else if (action.type === 'CLEAR_COMMENT') {
+  } else if (action.type === 'CLEAR_COMMENTS') {
     return '';
   }
   return state;
@@ -20,15 +20,6 @@ const feelingReducer = (state = '', action) => {
   if (action.type === 'SET_FEELING') {
     return action.payload;
   } else if (action.type === 'CLEAR_FEELING') {
-    return '';
-  }
-  return state;
-};
-
-const reviewReducer = (state = '', action) => {
-  if (action.type === 'SET_REVIEW') {
-    return action.payload;
-  } else if (action.type === 'CLEAR_REVIEW') {
     return '';
   }
   return state;
