@@ -19,9 +19,9 @@ class App extends Component {
           </h4>
         </header>
         <Router>
-          <Route exact path="/" component={App} />
+          <Route exact path="/" component={Feeling} />
           <Route exact path="/comments" component={Comments} />
-          <Route exact path="/feeling" component={Feeling} />
+          {/* <Route exact path="/feeling" component={Feeling} /> */}
           <Route exact path="/support" component={Support} />
           <Route exact path="/understanding" component={Understanding} />
         </Router>
