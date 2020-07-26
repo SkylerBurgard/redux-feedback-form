@@ -14,11 +14,15 @@ class Support extends Component {
   };
 
   handleNextClick = (event) => {
-    this.props.dispatch({
-      type: 'SET_SUPPORT',
-      payload: this.state.support,
-    });
-    this.props.history.push('/comments');
+    if (this.state.support === '') {
+      alert('Tell us how supported you feel');
+    } else {
+      this.props.dispatch({
+        type: 'SET_SUPPORT',
+        payload: this.state.support,
+      });
+      this.props.history.push('/comments');
+    }
   };
 
   render() {
@@ -28,7 +32,7 @@ class Support extends Component {
         <input
           onChange={this.handleChange}
           type="number"
-          placeholder="Do you feel suppor?"
+          placeholder="Do you feel supported?"
           id="feeling"
         />
         <button onClick={this.handleNextClick}> Next page </button>

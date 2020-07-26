@@ -14,11 +14,15 @@ class Feeling extends Component {
   };
 
   handleNextClick = (event) => {
-    this.props.dispatch({
-      type: 'SET_FEELING',
-      payload: this.state.feeling,
-    });
-    this.props.history.push('/understanding');
+    if (this.state.feeling === '') {
+      alert('please enter your feelings');
+    } else {
+      this.props.dispatch({
+        type: 'SET_FEELING',
+        payload: this.state.feeling,
+      });
+      this.props.history.push('/understanding');
+    }
   };
 
   render() {

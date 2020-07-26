@@ -13,11 +13,15 @@ class Understanding extends Component {
   };
 
   handleNextClick = (event) => {
-    this.props.dispatch({
-      type: 'SET_UNDERSTANDING',
-      payload: this.state.understanding,
-    });
-    this.props.history.push('/support');
+    if (this.state.understanding === '') {
+      alert('Oops! you didnt answer :/');
+    } else {
+      this.props.dispatch({
+        type: 'SET_UNDERSTANDING',
+        payload: this.state.understanding,
+      });
+      this.props.history.push('/support');
+    }
   };
 
   render() {
