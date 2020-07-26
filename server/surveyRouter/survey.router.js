@@ -31,5 +31,5 @@ router.get('/', (req, res) => {
       res.sendStatus(500);
     });
 });
-
+//Our survey router file that houses our GET and POST routes.
 module.exports = router;

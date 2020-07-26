@@ -11,6 +11,7 @@ class Understanding extends Component {
       understanding: event.target.value,
     });
   };
+  //setting our state of understanding to an empty string.
 
   handleNextClick = (event) => {
     if (this.state.understanding === '') {
@@ -23,6 +24,8 @@ class Understanding extends Component {
       this.props.history.push('/support');
     }
   };
+
+  //click event that sends you to the support page.
 
   render() {
     return (
@@ -40,6 +43,8 @@ class Understanding extends Component {
     );
   }
 }
+
+//our return that contains our "next" button.
 
 const mapStoreToProps = (store) => ({ store });
 

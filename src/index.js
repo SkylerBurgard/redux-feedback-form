@@ -7,6 +7,8 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
+//The index page houses our reducer functions
+
 const commentsReducer = (state = '', action) => {
   if (action.type === 'SET_COMMENTS') {
     return action.payload;

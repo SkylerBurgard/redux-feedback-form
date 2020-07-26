@@ -10,7 +10,7 @@ app.use(express.static('build'));
 
 /** ---------- EXPRESS ROUTES ---------- **/
 app.use('/survey', surveyRouter);
-
+//Our express route for our survey router
 /** ---------- START SERVER ---------- **/
 app.listen(PORT, () => {
   console.log('Listening on port: ', PORT);
