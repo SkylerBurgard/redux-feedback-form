@@ -12,13 +12,14 @@ class Understanding extends Component {
     });
   };
 
-  handleNextClick = () => (event) => {
+  handleNextClick = (event) => {
     this.props.dispatch({
       type: 'SET_UNDERSTANDING',
       payload: this.state.understanding,
     });
-    this.props.history('/support');
+    this.props.history.push('/support');
   };
+
   render() {
     return (
       <div className="App">

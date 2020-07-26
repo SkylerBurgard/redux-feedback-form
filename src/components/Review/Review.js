@@ -36,6 +36,7 @@ class Review extends Component {
       });
   }
   render() {
+    console.log(this.props);
     return (
       <div>
         <h1> Review </h1>
@@ -43,7 +44,7 @@ class Review extends Component {
           <li>Feeling: {this.props.feeling}</li>
           <li>Understanding: {this.props.understanding}</li>
           <li>Support: {this.props.support}</li>
-          <li>Comments: {this.props.comment}</li>
+          <li>Comments: {this.props.comments}</li>
         </ul>
         <button onClick={this.submitFeedback}>Submit your feedback</button>
       </div>

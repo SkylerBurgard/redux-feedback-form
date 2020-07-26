@@ -11,7 +11,6 @@ class Comments extends Component {
     this.setState({
       comments: event.target.value,
     });
-    this.props.history.push('/review');
   };
 
   handleNextClick = (event) => {
