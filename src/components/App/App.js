@@ -6,6 +6,7 @@ import Comments from '../components/comments';
 import Feeling from '../components/feeling';
 import Support from '../components/support';
 import Understanding from '../components/understanding';
+import Review from '../components/review';
 
 class App extends Component {
   render() {

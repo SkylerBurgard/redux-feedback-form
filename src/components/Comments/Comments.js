@@ -11,6 +11,7 @@ class Comments extends Component {
     this.setState({
       comments: event.target.value,
     });
+    this.props.history.push('/review');
   };
 
   handleNextClick = (event) => {
@@ -18,7 +19,7 @@ class Comments extends Component {
       type: 'SET_COMMENTS',
       payload: this.state.comments,
     });
-    this.props.history.push('/feeling');
+    this.props.history.push('/review');
   };
   render() {
     return (
