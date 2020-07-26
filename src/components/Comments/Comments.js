@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import mapStoreToProps from '../modules/mapReduxStateToProps';
+// import mapStoreToProps from '../modules/mapReduxStateToProps';
 
 class Comments extends Component {
   state = {

@@ -7,7 +7,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
-const commentReducer = (state = '', action) => {
+const commentsReducer = (state = '', action) => {
   if (action.type === 'SET_COMMENTS') {
     return action.payload;
   } else if (action.type === 'CLEAR_COMMENTS') {

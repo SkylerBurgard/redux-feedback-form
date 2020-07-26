@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import mapStoreToProps from '../modules/mapStoreToProps';
+// import mapStoreToProps from '../modules/mapStoreToProps';
 
 class Feeling extends Component {
   state = {
@@ -37,4 +37,6 @@ class Feeling extends Component {
   }
 }
 
-export default connect(mapStoreToProps)(feeling);
+const mapStoreToProps = (store) => ({ store });
+
+export default connect(mapStoreToProps)(Feeling);

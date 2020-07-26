@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import mapStoreToProps from '../modules/mapStoreToProps';
+// import mapStoreToProps from '../modules/mapStoreToProps';
 
 class Support extends Component {
   state = {
@@ -28,7 +28,7 @@ class Support extends Component {
         <input
           onChange={this.handleChange}
           type="number"
-          placeholder="Do you feel supported?"
+          placeholder="Do you feel suppor?"
           id="feeling"
         />
         <button onClick={this.handleNextClick}> Next page </button>
@@ -36,5 +36,7 @@ class Support extends Component {
     );
   }
 }
+
+const mapStoreToProps = (store) => ({ store });
 
 export default connect(mapStoreToProps)(Support);
