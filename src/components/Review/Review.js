@@ -35,6 +35,23 @@ class Review extends Component {
         console.log('Error somethings not right');
       });
   }
+
+  postNewSurvey(newSurvey) {
+    axios
+      .post('/survey', newSurvey)
+      .then((response) => {
+        console.log('Server POST', response.data);
+        this.props.dispatch({ type: 'CLEAR_FEELING' });
+        this.props.dispatch({ type: 'CLEAR_COMMENTS' });
+        this.props.dispatch({ type: 'CLEAR_UNDERSTANDING' });
+        this.props.dispatch({ type: 'CLEAR_SUPPORT' });
+        this.props.history.push('/success');
+      })
+      .catch((err) => {
+        console.log(err);
+        alert('Sorry, we coudnlt save your survey');
+      });
+  }
   render() {
     console.log(this.props);
     return (
