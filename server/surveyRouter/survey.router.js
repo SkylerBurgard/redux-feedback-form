@@ -3,16 +3,16 @@ const router = express.Router();
 const pool = require('../modules/pool');
 
 router.post('/', (req, res) => {
-  let newSurvey = req.body;
-  let queryText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
+  const newSurvey = req.body;
+  const queryText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
     VALUES ($1, $2, $3, $4);`;
 
   pool
     .query(queryText, [
-      newSurvey.feeling,
-      newSurvey.understanding,
-      newSurvey.support,
-      newSurvey.comments,
+      req.body.feeling,
+      req.body.understanding,
+      req.body.support,
+      req.body.comments,
     ])
     .then((result) => {
       res.sendStatus(201);
