@@ -19,7 +19,7 @@ class Understanding extends Component {
     } else {
       this.props.dispatch({
         type: 'SET_UNDERSTANDING',
-        payload: this.state.understanding,
+        payload: parseInt(this.state.understanding),
       });
       this.props.history.push('/support');
     }

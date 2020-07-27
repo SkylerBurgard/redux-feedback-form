@@ -12,7 +12,7 @@ class Success extends Component {
     return (
       <div className="App">
         <h1> Thanks for taking our survey!</h1>
-        <button onClick={this.handleNextClick}>Return to home page.</button>
+        <button onClick={this.handleNextClick}>Leave new feedback.</button>
       </div>
     );
   }

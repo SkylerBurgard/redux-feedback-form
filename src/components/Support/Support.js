@@ -19,7 +19,7 @@ class Support extends Component {
     } else {
       this.props.dispatch({
         type: 'SET_SUPPORT',
-        payload: this.state.support,
+        payload: parseInt(this.state.support),
       });
       this.props.history.push('/comments');
     }

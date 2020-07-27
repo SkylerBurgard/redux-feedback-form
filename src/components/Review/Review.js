@@ -29,7 +29,7 @@ class Review extends Component {
   };
   postFeedback(data) {
     axios
-      .post('/feedback', data)
+      .post('/prime_feedback', data)
       .then((response) => {
         console.log('Server POST', response.data);
         this.props.dispatch({ type: 'CLEAR_FEELING' });

@@ -19,7 +19,7 @@ class Feeling extends Component {
     } else {
       this.props.dispatch({
         type: 'SET_FEELING',
-        payload: this.state.feeling,
+        payload: parseInt(this.state.feeling),
       });
       this.props.history.push('/understanding');
     }
