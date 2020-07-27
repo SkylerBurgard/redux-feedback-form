@@ -30,15 +30,6 @@ class Review extends Component {
   postFeedback(data) {
     axios
       .post('/feedback', data)
-      .then((response) => {})
-      .catch((err) => {
-        console.log('Error somethings not right');
-      });
-  }
-
-  postNewSurvey(newSurvey) {
-    axios
-      .post('/survey', newSurvey)
       .then((response) => {
         console.log('Server POST', response.data);
         this.props.dispatch({ type: 'CLEAR_FEELING' });
@@ -49,8 +40,24 @@ class Review extends Component {
       })
       .catch((err) => {
         console.log(err);
-        alert('Sorry, we coudnlt save your survey');
+        alert('Sorry, we couldnt save your survey');
       });
+
+    // postNewSurvey(newSurvey) {
+    //   axios
+    //     .post('/feedback', newSurvey)
+    //     .then((response) => {
+    //       console.log('Server POST', response.data);
+    //       this.props.dispatch({ type: 'CLEAR_FEELING' });
+    //       this.props.dispatch({ type: 'CLEAR_COMMENTS' });
+    //       this.props.dispatch({ type: 'CLEAR_UNDERSTANDING' });
+    //       this.props.dispatch({ type: 'CLEAR_SUPPORT' });
+    //       this.props.history.push('/success');
+    //     })
+    //     .catch((err) => {
+    //       console.log(err);
+    //       alert('Sorry, we couldnt save your survey');
+    //     });
   }
   render() {
     console.log(this.props);
