@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
+// const surveyRouter = require('../routes/survey.router.js');
 
 router.post('/', (req, res) => {
   const newSurvey = req.body;
