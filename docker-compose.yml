@@ -1,7 +1,7 @@
 version: '3'
-
 services:
   client:
+    stdin_open: true
     build:
       context: ./
       dockerfile: ./Dockerfile.client
@@ -12,39 +12,40 @@ services:
       - './src:/app-client/src'
       - './public:/app-client/public'
       - '/app-client/node_modules'
-      depends_on:
-        - server
-      command: npm run client
+    depends_on:
+      - server
+    command: npm run client
   database:
     image: postgres:latest
     restart: always
     ports:
-      - ${DOCKERDB_PORT}:${DOCKERDB_PORT}
-      environment:
-        POSTGRES_USER: ${DOCKER_DB_USER}
-        POSTGRES_PASSWORD: ${DOCKER_DB_PASS}
-        POSTGRES_DB: ${DOCKER_DB_NAME}
-        POSTGRES_HOST: ${DOCKER_DB_HOST}
-      volumes:
-        - ./database/init.sql:/docker-entrypoint-initdb.d/10-init.sql
-        - ./database/data.sql:/docker-entrypoint-initdb.d/20-data.sql
+      - ${DOCKER_DB_PORT}:${DOCKER_DB_PORT}
+    environment:
+      POSTGRES_USER: ${DOCKER_DB_USER}
+      POSTGRES_PASSWORD: ${DOCKER_DB_PASS}
+      POSTGRES_DB: ${DOCKER_DB_NAME}
+      POSTGRES_HOST: ${DOCKER_DB_HOST}
+    volumes:
+      - ./database/init.sql:/docker-entrypoint-initdb.d/10-init.sql
+      - ./database/data.sql:/docker-entrypoint-initdb.d/20-data.sql
   server:
     build:
-        context: ./
-        dockerfile: ./Dockerfile.server
+      context: ./
+      dockerfile: ./Dockerfile.server
     ports:
-        - 5000:5000
+      - 5000:5000
     environment:
-        POSTGRES_USER: ${DOCKER_DB_USER}
-        POSTGRES_PASSWORD: ${DOCKER_DB_PASS}
-        POSTGRES_DB: ${DOCKER_DB_NAME}
-        POSTGRES_HOST: database
-        CHOKIDAR_USEPOLLING: 'true'
-        NODE_ENV: ${NODE_ENV}
+      PORT_DB: ${DOCKER_DB_PORT}
+      POSTGRES_USER: ${DOCKER_DB_USER}
+      POSTGRES_PASSWORD: ${DOCKER_DB_PASS}
+      POSTGRES_DB: ${DOCKER_DB_NAME}
+      POSTGRES_HOST: database
+      CHOKIDAR_USEPOLLING: 'true'
+      NODE_ENV: ${NODE_ENV}
     volumes:
-        - './server:/app-server/server'
-        - './public:/app-server/public'
-        - './app-server/node_modules'
+      - './server:/app-server/server'
+      - './public:/app-server/public'
+      - '/app-server/node_modules'
     depends_on:
-        - database
-        command: npm run server
+      - database
+    command: npm run server
